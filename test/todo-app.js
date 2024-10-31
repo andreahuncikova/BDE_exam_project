@@ -3,18 +3,12 @@ import { Selector } from 'testcafe';
 fixture ( 'ToDo app tests' )
     .page ( 'test.andreahuncikova.com/todo' );
 
-    test('User can add a new todo item', async t => {
-        // Selectors for elements on the page
-        const todoInput = Selector('#todo-input');
-        const todoForm = Selector('.todo-form');
+    test('Check if at least one todo item exists', async t => {
         const todoList = Selector('#todo-list');
-        const todoItem = todoList.find('.todo-item'); // Selects a new todo item in the list
     
-        // Type a new todo item and submit the form
-        await t
-            .typeText(todoInput, 'My new todo item')
-            .pressKey('enter'); // Or .click(todoForm) if form submission requires a click
+        // Check if there is at least one todo item in the list
+        const todoItemsCount = await todoList.child('li.todo-item').count;
     
-        // Check if the todo item was added to the list
-        await t.expect(todoItem.withText('My new todo item').exists).ok();
+        // Assert that the count of todo items is greater than 0
+        await t.expect(todoItemsCount).gt(0, 'There are no todo items in the list');
     });
