@@ -1,4 +1,4 @@
 import { Selector } from 'testcafe';
 
 fixture ( 'ToDo app tests' )
-    .page ( 'http://localhost:3000/' );
+    .page ( 'test.andreahuncikova.com/todo' );
