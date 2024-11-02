@@ -118,3 +118,74 @@ h1 {
 .todo-item .toggleCompleteCheckbox {
   cursor: pointer;
 }
+
+/* Styles for Dark Mode */
+body.dark-mode {
+  background-color: #333; /* Dark background */
+  color: #fff; /* Light text color */
+}
+
+body.dark-mode .container {
+  background: #444; /* Darker background for container */
+  box-shadow: none; /* Remove shadow in dark mode */
+}
+
+body.dark-mode .todo-item {
+  background: #555; /* Darker background for todo items */
+  border-bottom: 1px solid #666; /* Lighter border */
+}
+
+body.dark-mode .todo-form input {
+  border: 1px solid #777; /* Adjust border color in dark mode */
+}
+
+body.dark-mode .todo-form button {
+  background: #5cb85c; /* Change button color for dark mode */
+}
+
+body.dark-mode .todo-item button {
+  background: #dc3545; /* Keep remove button color */
+}
+
+#darkModeToggle {
+  padding: 10px;
+  border: none;
+  background: #28a72c;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#darkModeToggle:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+#darkModeToggle span {
+  margin-left: 5px; /* Space between emoji and text */
+}
+
+
+/* Button styles */
+#clearCompletedBtn {
+  padding: 10px;
+  border: none;
+  color: #000000;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#clearCompletedBtn:hover {
+  background-color: #f9f9f9; /* Lighter background on hover */
+}
+
+#toggleAllBtn {
+  padding: 10px;
+  border: none;
+  color: #000000;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#toggleAllBtn:hover {
+  background-color: #f9f9f9; /* Lighter background on hover */
+}
