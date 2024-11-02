@@ -17,7 +17,7 @@
   --container-padding: 20px;
   --container-border-radius: 5px;
   --container-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  --container-width: 300px;
+  --container-width: 450px;
 }
 
 body {
@@ -117,4 +117,10 @@ h1 {
 /* Optional: Add styles for the checkbox */
 .todo-item .toggleCompleteCheckbox {
   cursor: pointer;
+}
+
+.overdue {
+  background-color: #f8d7da; /* Light red background for overdue items */
+  color: #721c24; /* Dark red text color */
+  border: 1px solid #f5c6cb; /* Red border */
 }
