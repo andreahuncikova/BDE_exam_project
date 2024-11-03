@@ -153,37 +153,34 @@ body.dark-mode .todo-item button {
 }
 
 #darkModeToggle:hover {
-  background-color: #797eaf; /* Darker green on hover */
+  background-color: #797eaf; 
 }
-
-#darkModeToggle span {
-  margin-left: 5px; /* Space between emoji and text */
-}
-
 
 /* Button styles */
 #clearCompletedBtn {
   padding: 10px;
   border: none;
-  color: #000000;
+  background: #686ea9;
+  color: #ffffff;
   border-radius: 3px;
   cursor: pointer;
 }
 
 #clearCompletedBtn:hover {
-  background-color: #f9f9f9; /* Lighter background on hover */
+  background: #797eaf;
 }
 
 #toggleAllBtn {
   padding: 10px;
   border: none;
-  color: #000000;
+  background: #686ea9;
+  color: #ffffff;
   border-radius: 3px;
   cursor: pointer;
 }
 
 #toggleAllBtn:hover {
-  background-color: #f9f9f9; /* Lighter background on hover */
+  background-color: #797eaf; /* Lighter background on hover */
 }
 
 .overdue {

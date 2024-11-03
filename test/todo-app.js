@@ -3,6 +3,7 @@ import { Selector } from 'testcafe';
 fixture ( 'ToDo app tests' )
     .page ( 'test.andreahuncikova.com/todo' );
 
+    // Test to add a new todo with due date
     test('Add Todo with Due Date', async t => {
         const todoInput = Selector('#todo-input');
         const dueDateInput = Selector('#due-date');
@@ -10,10 +11,10 @@ fixture ( 'ToDo app tests' )
         const todoItem = Selector('.todo-item').withText('Test todo with due date');
       
         await t
-            .typeText(todoInput, 'Test todo with due date') // Add the todo text
-            .typeText(dueDateInput, '2024-12-01') // Set the due date
-            .click(addButton) // Click the add button
-            .expect(todoItem.exists).ok(); // Check if the todo item was added successfully
+            .typeText(todoInput, 'Test todo with due date') 
+            .typeText(dueDateInput, '2024-12-01') 
+            .click(addButton) 
+            .expect(todoItem.exists).ok(); 
     });
 
     // Test to toggle dark mode
@@ -22,8 +23,8 @@ fixture ( 'ToDo app tests' )
         const body = Selector('body');
 
         await t
-            .click(darkModeToggle) // Click the dark mode toggle button
-            .expect(body.hasClass('dark-mode')).ok('Dark mode should be enabled') // Check if dark mode class is applied
-            .click(darkModeToggle) // Click again to toggle back
-            .expect(body.hasClass('dark-mode')).notOk('Dark mode should be disabled'); // Check if dark mode class is removed
+            .click(darkModeToggle) 
+            .expect(body.hasClass('dark-mode')).ok('Dark mode should be enabled')
+            .click(darkModeToggle) 
+            .expect(body.hasClass('dark-mode')).notOk('Dark mode should be disabled'); 
     });
