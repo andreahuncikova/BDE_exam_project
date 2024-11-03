@@ -6,6 +6,7 @@ export interface Todo {
   id: number;
   text: string;
   completed: boolean;
+  dueDate?: string;
 }
 
 // Initialize an empty array to store todos
@@ -13,6 +14,7 @@ export let todos: Todo[] = [];
 
 // Get references to the HTML elements
 const todoInput = document.getElementById('todo-input') as HTMLInputElement;
+const dueDateInput = document.getElementById('due-date') as HTMLInputElement;
 const todoForm = document.querySelector('.todo-form') as HTMLFormElement;
 const todoList = document.getElementById('todo-list') as HTMLUListElement;
 const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
@@ -20,15 +22,23 @@ const clearCompletedButton = document.getElementById('clearCompletedBtn') as HTM
 const toggleAllButton = document.getElementById('toggleAllBtn') as HTMLButtonElement;
 
 // Function to add a new todo
-export const addTodo = (text: string): void => {
+export const addTodo = (text: string, dueDate: string): void => {
   const newTodo: Todo = {
     id: Date.now(),
     text: text,
     completed: false,
+    dueDate: dueDate,
   };
   todos.push(newTodo);
   console.log("Todo added: ", todos);
   renderTodos();
+};
+
+// Function to check if a due date is overdue
+const isOverdue = (dueDate: string): boolean => {
+  const now = new Date();
+  const due = new Date(dueDate);
+  return due < now;
 };
 
 // Function to render the list of todos
@@ -41,9 +51,15 @@ const renderTodos = (): void => {
     li.innerHTML = `
       <input type="checkbox" class="toggleCompleteCheckbox" ${todo.completed ? 'checked' : ''}>
       <span class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+      <span class="due-date">${todo.dueDate ? `Due: ${todo.dueDate}` : ''}</span>
       <button class="removeBtn">Remove</button>
       <button class="editBtn">Edit</button>
     `;
+
+    if (todo.dueDate && isOverdue(todo.dueDate)) {
+      li.classList.add('overdue'); // Add a class for styling overdue items
+  }
+
     addRemoveButtonListener(li, todo.id); 
     addEditButtonListener(li, todo.id); 
     addToggleCompleteButtonListener(li, todo.id); 
@@ -58,11 +74,13 @@ renderTodos();
 todoForm.addEventListener('submit', (event: Event) => {
   event.preventDefault();
   const text = todoInput.value.trim();
+  const dueDate = dueDateInput.value;
   if (text !== '') {
     todoInput.classList.remove('input-error');
     errorMessage.style.display = 'none';
-    addTodo(text);
+    addTodo(text, dueDate);
     todoInput.value = '';
+    dueDateInput.value = '';
   } else {
     todoInput.classList.add('input-error');
     errorMessage.style.display = 'block';
