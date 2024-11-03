@@ -87,6 +87,11 @@ todoForm.addEventListener('submit', (event: Event) => {
   }
 });
 
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle?.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode'); // Toggle dark mode class
+});
+
 // Function to remove a todo by ID
 export const removeTodo = (id: number): void => {
   todos = todos.filter(todo => todo.id !== id);
