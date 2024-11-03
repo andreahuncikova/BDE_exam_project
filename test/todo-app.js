@@ -15,3 +15,15 @@ fixture ( 'ToDo app tests' )
             .click(addButton) // Click the add button
             .expect(todoItem.exists).ok(); // Check if the todo item was added successfully
     });
+
+
+    // Test to toggle dark mode
+    test('Toggle Dark Mode', async t => {
+        const darkModeToggle = Selector('#darkModeToggle');
+
+        await t
+            .click(darkModeToggle) // Click the dark mode toggle button
+            .expect(document.body.classList.contains('dark-mode')).ok() // Check if dark mode class is applied
+            .click(darkModeToggle) // Click again to toggle back
+            .expect(document.body.classList.contains('dark-mode')).notOk(); // Check if dark mode class is removed
+    });
