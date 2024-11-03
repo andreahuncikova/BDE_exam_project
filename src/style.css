@@ -56,7 +56,7 @@ h1 {
 .todo-form button {
   padding: 10px;
   border: none;
-  background: #28a745;
+  background: #686ea9;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
@@ -139,10 +139,6 @@ body.dark-mode .todo-form input {
   border: 1px solid #777; /* Adjust border color in dark mode */
 }
 
-body.dark-mode .todo-form button {
-  background: #5cb85c; /* Change button color for dark mode */
-}
-
 body.dark-mode .todo-item button {
   background: #dc3545; /* Keep remove button color */
 }
@@ -150,14 +146,14 @@ body.dark-mode .todo-item button {
 #darkModeToggle {
   padding: 10px;
   border: none;
-  background: #28a72c;
+  background: #686ea9;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
 }
 
 #darkModeToggle:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #797eaf; /* Darker green on hover */
 }
 
 #darkModeToggle span {

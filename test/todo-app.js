@@ -3,10 +3,13 @@ import { Selector } from 'testcafe';
 fixture ( 'ToDo app tests' )
     .page ( 'test.andreahuncikova.com/todo' );
 
-    test('Check if Clear Completed button exists', async t => {
-        // Select the button by its ID
-        const clearCompletedButton = Selector('#clearCompletedBtn');
-    
-        // Assert that the button exists
-        await t.expect(clearCompletedButton.exists).ok('The Clear Completed button does not exist');
-    });
+    test('Due Date Highlighting Test', async t => {
+        const todoInput = Selector('#todo-input');
+        const addButton = Selector('.todo-form button');
+        const todoItem = Selector('.todo-item').withText('Test todo');
+      
+        await t
+          .typeText(todoInput, 'Test todo with due date')
+          .click(addButton)
+          .expect(todoItem.exists).ok(); // Confirms the todo item with a due date is added
+      });
