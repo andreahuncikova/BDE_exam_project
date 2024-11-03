@@ -16,14 +16,14 @@ fixture ( 'ToDo app tests' )
             .expect(todoItem.exists).ok(); // Check if the todo item was added successfully
     });
 
-
     // Test to toggle dark mode
     test('Toggle Dark Mode', async t => {
         const darkModeToggle = Selector('#darkModeToggle');
+        const body = Selector('body');
 
         await t
             .click(darkModeToggle) // Click the dark mode toggle button
-            .expect(document.body.classList.contains('dark-mode')).ok() // Check if dark mode class is applied
+            .expect(body.hasClass('dark-mode')).ok('Dark mode should be enabled') // Check if dark mode class is applied
             .click(darkModeToggle) // Click again to toggle back
-            .expect(document.body.classList.contains('dark-mode')).notOk(); // Check if dark mode class is removed
+            .expect(body.hasClass('dark-mode')).notOk('Dark mode should be disabled'); // Check if dark mode class is removed
     });
