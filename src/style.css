@@ -61,6 +61,11 @@ h1 {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.todo-form button:hover {
+  background-color: #797eaf;
+}
+
 .todo-list {
   list-style: none;
   padding: 0;
